@@ -1,0 +1,31 @@
+version: "2.2"
+
+services:
+  pawserver:
+    image: petversocial/pawserver
+    environment:
+      PORT: 6000
+      LOG_LEVEL: CRITICAL # can be any of CRITICAL ERROR WARNING INFO DEBUG NOTSET
+    ports:
+    - 8080:6000
+    volumes:
+      - ./pawserver.cfg:/pawserver.cfg
+  kittehnet:
+    image: petversocial/kittehnet
+    environment:
+      LOG_LEVEL: CRITICAL # can be any of CRITICAL ERROR WARNING INFO DEBUG NOTSET
+    ports:
+    - 8088:5000
+    volumes:
+      - ./kittehnet.cfg:/kittehnet.cfg
+  kittehdb:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: kitteh
+      MYSQL_USER: kingcatto
+      MYSQL_PASSWORD: gotmilk
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+  doggoface:
+    image: petversocial/doggoface
+  sneksville:
+    image: petversocial/sneksville

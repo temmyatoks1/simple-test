@@ -1,0 +1,14 @@
+<!doctype html>
+<head>
+   <title>Petversocial</title>
+</head>
+  <body>
+    <ul>
+    Welcome to Petversocial!  For all your Furry Freinds.
+
+   {% for platform, status in platform_status.items() %}
+       <li>{{platform}}: {{status}}</li>
+   {% endfor %}
+    </ul>
+  </body>
+</html>
